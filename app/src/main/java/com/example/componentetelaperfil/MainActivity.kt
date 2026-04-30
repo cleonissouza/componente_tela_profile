@@ -1,5 +1,6 @@
 package com.example.componentetelaperfil
 
+import android.R.attr.subtitle
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -204,31 +205,37 @@ fun SettingsCard() {
             containerColor = Color(0xFFC1C4EE)
         )
     ) {
-        Column {
+        Column(
+            modifier = Modifier.padding(vertical = 8.dp)
+        ) {
             SettingsItem(
                 icon = Icons.Default.AccountBox,
-                title = "Account"
+                title = "Account",
+                subtitle = "Manage your account"
             )
 
             Divider(color = Color.LightGray)
 
             SettingsItem(
                 icon = Icons.Default.Notifications,
-                title = "Notifications"
+                title = "Notifications",
+                subtitle = "Push notifications settings"
             )
 
             Divider(color = Color.LightGray)
 
             SettingsItem(
                 icon = Icons.Default.Lock,
-                title = "Privacy"
+                title = "Privacy",
+                subtitle = "Security and privacy options"
             )
 
             Divider(color = Color.LightGray)
 
             SettingsItem(
                 icon = Icons.Default.Info,
-                title = "Help"
+                title = "Help",
+                subtitle = "Get support and help"
             )
         }
     }
@@ -237,13 +244,14 @@ fun SettingsCard() {
 @Composable
 fun SettingsItem(
     icon: ImageVector,
-    title: String
+    title: String,
+    subtitle: String
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(70.dp)
-            .padding(horizontal = 24.dp),
+            .padding(horizontal = 20.dp, vertical = 10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
 
@@ -251,23 +259,34 @@ fun SettingsItem(
             imageVector = icon,
             contentDescription = title,
             tint = Color.DarkGray,
-            modifier = Modifier.size(28.dp)
+            modifier = Modifier.size(24.dp)
         )
 
-        Spacer(modifier = Modifier.width(24.dp))
+        Spacer(modifier = Modifier.width(16.dp))
 
-        Text(
-            text = title,
-            fontSize = 18.sp,
-            color = Color.DarkGray,
+        Column (
             modifier = Modifier.weight(1f)
-        )
+        ){
+            Text(
+                text = title,
+                fontWeight = FontWeight.Medium,
+                fontSize = 16.sp,
+                color = Color.Black
+            )
+            Text(
+                text = subtitle,
+                fontWeight = FontWeight.Medium,
+                fontSize = 13.sp,
+                color = Color.DarkGray,
+                maxLines = 1
+            )
+        }
 
         Icon(
             imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
             contentDescription = "Open $title",
             tint = Color.DarkGray,
-            modifier = Modifier.size(32.dp)
+            modifier = Modifier.size(24.dp)
         )
     }
 }
