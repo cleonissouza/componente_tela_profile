@@ -22,28 +22,35 @@ fun SettingsCard() {
             .padding(16.dp)
     ) {
 
-        Column {
+        Column(
+            modifier = Modifier.padding(vertical = 8.dp)
+        ) {
             SettingsItem(
                 title = "Account",
-                icon = R.drawable.ic_account
+                icon = R.drawable.ic_account,
+                subtitle = "Manage your account"
             )
             HorizontalDivider(thickness = 0.5.dp, color = MaterialTheme.colorScheme.outlineVariant)
 
             SettingsItem(
                 title = "Notifications",
-                icon = R.drawable.ic_notifications
+                icon = R.drawable.ic_notifications,
+                subtitle = "Push notification settings"
             )
+
             HorizontalDivider(thickness = 0.5.dp, color = MaterialTheme.colorScheme.outlineVariant)
 
             SettingsItem(
                 title = "Privacy",
-                icon = R.drawable.ic_privacy
+                icon = R.drawable.ic_privacy,
+                subtitle = "Security and privacy options"
             )
             HorizontalDivider(thickness = 0.5.dp, color = MaterialTheme.colorScheme.outlineVariant)
 
             SettingsItem(
                 title = "Help",
-                icon = R.drawable.ic_help
+                icon = R.drawable.ic_help,
+                subtitle = "Get support and help"
             )
         }
     }
