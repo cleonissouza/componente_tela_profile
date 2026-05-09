@@ -9,6 +9,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.componentetelaperfil.ui.components.BarraInferior
 import com.example.componentetelaperfil.ui.screen.ProfileScreen
 import com.example.componentetelaperfil.ui.theme.BabyTrackerTheme
 
@@ -19,7 +20,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             BabyTrackerTheme {
                 Scaffold(
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.fillMaxSize(),
+                    bottomBar = {
+                        BarraInferior()
+                    }
                 ) { innerPadding ->
 
                     ProfileScreen(
@@ -31,10 +35,15 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun ProfilePreview() {
     BabyTrackerTheme {
-        ProfileScreen()
+        Scaffold(
+            modifier = Modifier.fillMaxSize(),
+            bottomBar = { BarraInferior() }
+        ) { innerPadding ->
+            ProfileScreen(modifier = Modifier.padding(innerPadding))
+        }
     }
 }
