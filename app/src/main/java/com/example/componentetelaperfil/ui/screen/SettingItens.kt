@@ -24,7 +24,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.componentetelaperfil.R
+import com.example.componentetelaperfil.ui.theme.AppTypography
 import com.example.componentetelaperfil.ui.theme.BabyTrackerTheme
+import com.example.componentetelaperfil.ui.theme.TextSecondary
+import com.example.componentetelaperfil.ui.theme.White
 
 @Composable
 fun SettingsItem(
@@ -46,7 +49,7 @@ fun SettingsItem(
             contentDescription = title,
             size = 40.dp,
             brush = brush,
-            iconTint = iconTint
+            iconTint = iconTint,
         )
 
         Spacer(modifier = Modifier.width(16.dp))
@@ -57,13 +60,13 @@ fun SettingsItem(
         ) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.bodyLarge,
+                style = AppTypography.labelLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurface
             )
             Text(
                 text = subtitle,
-                style = MaterialTheme.typography.bodySmall,
+                style = AppTypography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurface
             )
         }
@@ -72,7 +75,7 @@ fun SettingsItem(
             imageVector = Icons.AutoMirrored.Outlined.ArrowForwardIos,
             contentDescription = null,
             modifier = Modifier.size(16.dp),
-            tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
+            tint = TextSecondary
         )
     }
 }
@@ -87,7 +90,7 @@ fun SettingsItemPreview() {
             icon = R.drawable.ic_account,
             subtitle = "example",
             brush = gradientGreen,
-            iconTint = tintGreen
+            iconTint = White
         )
     }
 }

@@ -19,13 +19,6 @@ val gradientOrange = Brush.linearGradient(listOf(Color(0xFFFEE6CF), Color(0xFFF6
 val gradientBlue = Brush.linearGradient(listOf(Color(0xFFCFE7FF), Color(0xFF7FB8FF)))
 val gradientGreen = Brush.linearGradient(listOf(Color(0xFFCEF7DE), Color(0xFF79C18F)))
 val gradientPurple = Brush.linearGradient(listOf(Color(0xFFF6DDFF), Color(0xFFB36BDD)))
-
-// Paleta cores dos icones
-val tintOrange = Color(0xFFFD893C)
-val tintBlue   = Color(0xFF175CE1)
-val tintGreen  = Color(0xFF02A353)
-val tintPurple = Color(0xFF9336DE)
-
 @Composable
 fun IconWithBackground(
     painter: Painter,

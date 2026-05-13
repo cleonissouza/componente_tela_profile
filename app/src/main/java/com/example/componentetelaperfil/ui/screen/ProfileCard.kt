@@ -1,6 +1,5 @@
 package com.example.componentetelaperfil.ui.screen
 
-import android.provider.ContactsContract
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,8 +14,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
@@ -24,31 +21,29 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.componentetelaperfil.R
+import com.example.componentetelaperfil.ui.theme.AppTypography
 import com.example.componentetelaperfil.ui.theme.BabyTrackerTheme
-import com.example.componentetelaperfil.ui.theme.backgroundBrush
-import com.example.componentetelaperfil.ui.theme.backgroundCard
-
+import com.example.componentetelaperfil.ui.theme.CardShapeLarge
+import com.example.componentetelaperfil.ui.theme.SurfaceColor
 
 @Composable
 fun ProfileCard() {
     Card(
-        shape = MaterialTheme.shapes.large,
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        shape = CardShapeLarge,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(20.dp)
     ) {
         Box(
             modifier = Modifier
                 .background(brush = backgroundCard)
-                .padding(20.dp)
+                .padding(30.dp)
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -66,19 +61,17 @@ fun ProfileCard() {
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
-                    text = "Emmy Rose",
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.Bold,
+                    text = stringResource(R.string.BabyName),
+                    style = AppTypography.headlineLarge,
                     color = MaterialTheme.colorScheme.onPrimary
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "Born on March 15, 2024",
-                    style = MaterialTheme.typography.bodySmall,
-                    fontWeight = FontWeight.Medium,
-                    color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.8f)
+                    text = stringResource(R.string.BabyBirthDate),
+                    style = AppTypography.bodyLarge,
+                    color = SurfaceColor.copy(alpha = 0.8f)
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -88,23 +81,23 @@ fun ProfileCard() {
                     horizontalArrangement = Arrangement.SpaceEvenly,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    InfoItem( "Age", "11 Weeks")
+                    InfoItem(stringResource(R.string.age), stringResource(R.string.BabyAge))
                     VerticalDivider(
                         modifier = Modifier
                             .height(24.dp)
                             .width(0.5.dp)
                             .align(Alignment.CenterVertically),
-                        color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.8f)
+                        color = SurfaceColor.copy(alpha = 0.8f)
                     )
-                    InfoItem("Weight", "3.65kg")
+                    InfoItem(stringResource(R.string.weight), stringResource(R.string.BabyWeight))
                     VerticalDivider(
                         modifier = Modifier
                             .height(24.dp)
                             .width(0.5.dp)
                             .align(Alignment.CenterVertically),
-                        color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.8f)
+                        color = SurfaceColor.copy(alpha = 0.8f)
                     )
-                    InfoItem("Height", "58cm")
+                    InfoItem(stringResource(R.string.height), stringResource(R.string.BabyHeight))
                 }
             }
         }
@@ -114,10 +107,8 @@ fun ProfileCard() {
 @Composable
 fun InfoItem(label: String, value: String) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(text = value, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onPrimary)
-        Text(text = label, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.7f))
-
+        Text(text = value, style = AppTypography.titleLarge, color = SurfaceColor)
+        Text(text = label, style = AppTypography.bodyLarge, color = SurfaceColor.copy(alpha = 0.7f))
     }
 }
 

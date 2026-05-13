@@ -1,7 +1,5 @@
 package com.example.componentetelaperfil.ui.theme
 
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Brush.Companion.linearGradient
 import androidx.compose.ui.graphics.Color
 
@@ -20,25 +18,10 @@ val tintBlue   = Color(0xFF175CE1)
 val tintGreen  = Color(0xFF028748)
 val tintPurple = Color(0xFF9336DE)
 
-val gradientOrange = linearGradient(listOf(Color(0xFFFEE6CF), Color(0xFFF6B18A)))
+val gradientOrange = linearGradient(listOf(Color(0xFFF6B18A), Color(0xFFFEE6CF)))
 val gradientBlue = linearGradient(listOf(Color(0xFFCFE7FF), Color(0xFF7FB8FF)))
 val gradientGreen = linearGradient(listOf(Color(0xFFCEF7DE), Color(0xFF79C18F)))
 val gradientPurple = linearGradient(listOf(Color(0xFFF6DDFF), Color(0xFFB36BDD)))
-
-val backgroundBrush = Brush.linearGradient(
-    colors = listOf(
-        Color(0xFFFFE3EA),
-        Color(0xFFFFFFFF),
-        Color(0xFFD9EEFF)
-    )
-)
-
-val backgroundCard = Brush.linearGradient(
-    colors = listOf(
-        Color(0xFF927FCC),
-        Color(0xFF66BED0)
-    )
-)
 
 /*
 Baby Tracker Colors

@@ -18,19 +18,22 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.componentetelaperfil.R
+import com.example.componentetelaperfil.ui.theme.AppTypography
 import com.example.componentetelaperfil.ui.theme.BabyTrackerTheme
-import com.example.componentetelaperfil.ui.theme.backgroundBrush
-
+import com.example.componentetelaperfil.ui.theme.SurfaceColor
+import com.example.componentetelaperfil.ui.theme.SurfaceDark
 @Composable
 fun ProfileScreen(modifier: Modifier = Modifier) {
     Box(
@@ -40,7 +43,7 @@ fun ProfileScreen(modifier: Modifier = Modifier) {
     ) {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(16.dp),
+            contentPadding = PaddingValues(8.dp),
             verticalArrangement = Arrangement.spacedBy(0.dp)
         ) {
             // HEADER
@@ -49,21 +52,21 @@ fun ProfileScreen(modifier: Modifier = Modifier) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 20.dp)
+                        .padding(horizontal = 16.dp)
                         .padding(end = 0.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            text = "Profile",
-                            style = MaterialTheme.typography.headlineMedium,
-                            color = MaterialTheme.colorScheme.onSurface,
+                            text = stringResource(R.string.profileLabel),
+                            style = AppTypography.headlineLarge,
+                            color = SurfaceDark,
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            text = "Your baby's information",
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                            text = stringResource(R.string.profileSubheader),
+                            style = AppTypography.bodyLarge,
+                            color = SurfaceDark.copy(alpha = 0.7f),
                             )
                     }
 
@@ -72,35 +75,34 @@ fun ProfileScreen(modifier: Modifier = Modifier) {
                         modifier = Modifier
                             .size(40.dp)
                             .clip(CircleShape)
-                            .background(Color.LightGray.copy(alpha = 0.3f)),
+                            .background(color = SurfaceColor),
                         contentAlignment = Alignment.Center
                     ) {
-                        IconButton(onClick = { /* ação */ }) {
+                        IconButton(onClick = { /* click action */ }) {
                             Icon(
                                 imageVector = Icons.Filled.Settings,
                                 contentDescription = "Settings",
-                                tint = MaterialTheme.colorScheme.onSurface,
+                                tint = SurfaceDark,
                                 modifier = Modifier.size(20.dp)
                             )
                         }
                     }
                 }
-
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(16.dp))
             }
 
             // PROFILE CARD
             item { ProfileCard() }
-            item { Spacer(modifier = Modifier.height(24.dp)) }
+            item { Spacer(modifier = Modifier.height(16.dp)) }
 
             // PROFILE CARD
             item {
                 Text(
-                    text = "Settings",
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(horizontal = 8.dp)
+                    text = stringResource(R.string.settingsLabel),
+                    style = AppTypography.headlineSmall,
+                    color = SurfaceDark.copy(alpha = 0.7f),
+                    fontWeight = FontWeight.Normal,
+                    modifier = Modifier.padding(horizontal = 16.dp)
                 )
                 Spacer(modifier = Modifier.height(12.dp))
             }
@@ -109,10 +111,26 @@ fun ProfileScreen(modifier: Modifier = Modifier) {
     }
 }
 
+// Gradient Colors
+val backgroundBrush = Brush.linearGradient(
+    colors = listOf(
+        Color(0xFFF8E3FF),
+        Color(0xF7FFFFFF),
+        Color(0xFFD9EEFF)
+    )
+)
+val backgroundCard = Brush.linearGradient(
+    colors = listOf(
+        Color(0xFF927FCC),
+        Color(0xFF66BED0)
+    )
+)
+
+
 @Preview
 @Composable
 fun ProfileScreenPreview (){
-    BabyTrackerTheme() {
+    BabyTrackerTheme {
         ProfileScreen()
     }
 }
